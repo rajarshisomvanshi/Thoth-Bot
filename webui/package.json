@@ -1,0 +1,7 @@
+{
+  "name": "ai-assistant-webui",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "echo 'Web UI development server started'"
+  }
+}
