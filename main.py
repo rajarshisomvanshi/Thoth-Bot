@@ -17,7 +17,7 @@ console = Console()
 
 THOTH_ASCII = """⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡠⠤⢶⣒⣒⡢⠤⢄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⠔⣩⣴⣾⣿⣿⡏⠀⡴⠛⠛⢢⡀⠹⣿⣿⣷⣦⡉⠂⢄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⠔⣩⣴⣾⣿⣿⡏⠀⡴⠛⠛⢢⡀⠹⣿⣿⣷⣦⡉⠂⢄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠀⠀⠁⠀⠈⣿⣿⣿⣿⣿⡀⠘⣇⠀⠀⣠⠇⠀⣿⣿⣿⣿⣿⠀⠀⠈⢁⠀⠤⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠓⠢⢙⠻⠿⣿⣷⣀⠈⠙⠋⠁⢀⣼⣿⡿⠟⣋⠥⠒⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠒⢬⣛⡻⠿⠶⠶⠾⠟⢛⠡⠐⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -192,7 +192,7 @@ async def run_and_fix_code(agent_manager, project_path, main_file):
             if attempt < max_attempts - 1:
                 console.print("[yellow]Attempting to fix the error...[/yellow]")
                 
-                with open(file_path, 'r') as file:
+                with open(file_path, 'r', encoding='utf-8') as file:
                     existing_code = file.read()
                 
                 fix_instructions = f"Fix the following error in the code:\n\n{stderr}\n\nExisting code:\n\n{existing_code}"
@@ -202,7 +202,7 @@ async def run_and_fix_code(agent_manager, project_path, main_file):
                     if improved_code:
                         # Check if the improved code is valid Python
                         if is_valid_python(improved_code):
-                            with open(file_path, 'w') as file:
+                            with open(file_path, 'w', encoding='utf-8') as file:
                                 file.write(improved_code)
                             console.print("[green]Code has been improved and saved.[/green]")
                         else:

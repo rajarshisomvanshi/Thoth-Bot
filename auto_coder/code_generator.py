@@ -39,9 +39,9 @@ class CodeGenerator:
             # Remove any potential markdown formatting
             code = code.strip().replace("```python", "").replace("```", "").strip()
 
-            # Create the file and write the code
+            # Create the file and write the code using UTF-8 encoding
             os.makedirs(os.path.dirname(file_path), exist_ok=True)
-            with open(file_path, 'w') as file:
+            with open(file_path, 'w', encoding='utf-8') as file:
                 file.write(code)
 
             return code
@@ -141,8 +141,8 @@ class CodeGenerator:
             if improved_code.startswith("Here's the corrected code:"):
                 improved_code = improved_code.replace("Here's the corrected code:", "", 1).strip()
         
-            # Dosyayı güncelle
-            with open(file_path, 'w') as file:
+            # Update the file using UTF-8 encoding
+            with open(file_path, 'w', encoding='utf-8') as file:
                 file.write(improved_code)
         
             return improved_code
