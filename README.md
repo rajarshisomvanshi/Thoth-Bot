@@ -1,24 +1,26 @@
 # Thoth-Bot
 
-Thoth-Bot is a powerful AI assistant and code generation tool that combines natural language processing capabilities with advanced coding functionalities. It offers a versatile command-line interface for chatting with an AI, generating code, and managing AI agents.
+Thoth-Bot is a powerful AI assistant and code generation tool that combines natural language processing capabilities with advanced coding functionalities. It offers a versatile command-line interface for chatting with AI, generating code, and managing AI agents.
 
 ![Thoth-Bot Screenshot](Animation.gif)
 
 ## Features
 
-- **AI Chat**: Engage in conversations with an advanced AI model, capable of answering questions and providing assistance on various topics.
+- **AI Chat**: Engage in conversations with an advanced AI model capable of answering questions and providing assistance on various topics.
 - **Code Generation**: Automatically generate high-quality, well-structured Python code based on user instructions.
-- **Code Improvement**: Analyze and improve existing code, fixing errors and enhancing functionality.
-- **Multiple AI Models**: Choose from different AI models, including Llama 3.1 and Gemma, for various tasks.
+- **Code Improvement**: Analyze existing code, fix errors, and enhance functionality.
+- **Multiple AI Models**: Choose from different AI models, including Llama 3.1, Gemini, and Groq, for various tasks.
 - **Web UI Mode**: Launch a web-based user interface for enhanced interaction (in development).
+- **Security Settings**: Adjustable security levels for Gemini models.
 
 ## Technologies Used
 
 - Python
 - asyncio
 - Groq API
+- Google Generative AI (Gemini)
 - Rich (for console formatting)
-- dotenv
+- python-dotenv
 - subprocess (for running generated code)
 
 ## Prerequisites
@@ -40,9 +42,11 @@ Thoth-Bot is a powerful AI assistant and code generation tool that combines natu
    ```
 
 3. Set up your environment variables:
-   Create a `.env` file in the root directory and add your Groq API key:
+   Create a `.env` file in the root directory and add your API keys:
    ```
-   GROQ_API_KEY=your_api_key_here
+   GROQ_API_KEY=your_groq_api_key_here
+   GEMINI_API_KEY=your_gemini_api_key_here
+   OPENAI_API_KEY=your_openai_api_key_here
    ```
 
 4. Run the main script:
@@ -58,8 +62,9 @@ Thoth-Bot is a powerful AI assistant and code generation tool that combines natu
    - **AI Coder**: Generate or improve Python code.
    - **Agents**: Manage AI agents (in development).
    - **Web UI**: Launch the web-based user interface (in development).
+   - **Settings**: Configure your API keys.
 
-3. **Select an AI Model**: Choose from available models like Llama 3.1 or Gemma.
+3. **Select an AI Model**: Choose from Llama 3.1, Gemini, or Groq models.
 4. **Interact**: Follow the prompts to chat, generate code, or perform other tasks.
 
 ## Contributing
@@ -73,6 +78,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgments
 
 - [Groq](https://groq.com/) for providing the AI API.
+- [Google AI](https://ai.google/) for providing Gemini models.
 - [Rich](https://github.com/Textualize/rich) for beautiful console formatting.
 - [python-dotenv](https://github.com/theskumar/python-dotenv) for environment variable management.
 
