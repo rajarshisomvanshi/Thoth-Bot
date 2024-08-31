@@ -1,4 +1,4 @@
-# Thoth-Bot
+# Thoth-Bot v1.3
 
 Thoth-Bot is a powerful AI assistant and code generation tool that combines natural language processing capabilities with advanced coding functionalities. It offers a versatile command-line interface for chatting with AI, generating code, and managing AI agents.
 
