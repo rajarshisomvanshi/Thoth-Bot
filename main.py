@@ -15,13 +15,7 @@ import traceback
 
 console = Console()
 
-THOTH_ASCII = """⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡠⠤⢶⣒⣒⡢⠤⢄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⠔⣩⣴⣾⣿⣿⡏⠀⡴⠛⠛⢢⡀⠹⣿⣿⣷⣦⡉⠂⢄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠀⠀⠁⠀⠈⣿⣿⣿⣿⣿⡀⠘⣇⠀⠀⣠⠇⠀⣿⣿⣿⣿⣿⠀⠀⠈⢁⠀⠤⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠓⠢⢙⠻⠿⣿⣷⣀⠈⠙⠋⠁⢀⣼⣿⡿⠟⣋⠥⠒⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠒⢬⣛⡻⠿⠶⠶⠾⠟⢛⠡⠐⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠃⠉⠉⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀
+THOTH_ASCII = """⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 """
 
 def signal_handler(sig, frame):
@@ -83,27 +77,17 @@ def select_model():
     clear_screen()
     console.print(Panel("Select a model", expand=False, border_style="cyan"))
     console.print("1. Llama 3.1 70B (Preview)")
-    console.print("2. Llama 3.1 8B (Preview)")
-    console.print("3. Gemini 2 9B")
-    console.print("4. Gemini 7B")
-    console.print("5. Gemini 1.5 Pro")
-    console.print("6. Gemini 1.5 Flash")
-    console.print("7. Gemini 1.0 Pro")
-    console.print("8. Groq LLaMA 70B")
-    console.print("9. Groq Mixtral 8x7B")
+    console.print("2. Gemini 2 9B")
+    console.print("3. Gemini 1.5 Pro")
+    console.print("4. Gemini 1.5 Flash")
     
     model_choice = Prompt.ask("Enter your choice", choices=["1", "2", "3", "4", "5", "6", "7", "8", "9"])
-    
+    s
     model_map = {
         "1": "llama-3.1-70b-versatile",
-        "2": "llama-3.1-8b-instant",
-        "3": "gemini2-9b-it",
-        "4": "gemma-7b-it",
-        "5": "gemini-1.5-pro-latest",
-        "6": "gemini-1.5-flash-latest",
-        "7": "gemini-1.0-pro",
-        "8": "llama2-70b-4096",
-        "9": "mixtral-8x7b-32768"
+        "2": "gemini2-9b-it",
+        "3": "gemini-1.5-pro-latest",
+        "4": "gemini-1.5-flash-latest"
     }
     
     return model_map.get(model_choice, "llama-3.1-8b-instant")
